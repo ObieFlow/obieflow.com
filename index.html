@@ -1,204 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ObieFlow — Coming Soon</title>
-  <meta name="description" content="Sounds like you. Runs without you. AI social media manager for small business owners.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="Sounds like you. Runs without you. AI social media manager for small business owners."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --coral: #E8524A;
-      --navy: #1E2340;
-      --cream: #FAFAF8;
-      --muted: rgba(255,255,255,0.45);
+      --coral: #e8524a;
+      --navy: #1d2340;
+      --navy-deep: #171c33;
+      --ivory: #f7f6f2;
+      --text-light: rgba(255, 255, 255, 0.92);
+      --muted-light: rgba(255, 255, 255, 0.58);
+      --footer-light: rgba(255, 255, 255, 0.22);
+      --text-dark: #1d2340;
+    }
+
+    html,
+    body {
+      min-height: 100%;
     }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      font-family: "DM Sans", sans-serif;
+      background: var(--ivory);
+      color: var(--text-dark);
     }
 
     .page {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
     }
 
-    /* LEFT — dark, text */
+    .left,
+    .right {
+      min-width: 0;
+    }
+
     .left {
-      background: var(--navy);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 5rem 4rem 6rem;
-      animation: fadeLeft 0.9s ease forwards;
-      opacity: 0;
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 88%, rgba(232, 82, 74, 0.14), transparent 28%),
+        linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      padding: 56px 64px 56px 72px;
     }
 
-    .left::before {
-      content: '';
+    .left::after {
+      content: "";
       position: absolute;
-      bottom: -20%;
-      left: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(232,82,74,0.1) 0%, transparent 65%);
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent 30%);
       pointer-events: none;
     }
 
-    @keyframes fadeLeft {
-      from { opacity: 0; transform: translateX(-20px); }
-      to { opacity: 1; transform: translateX(0); }
+    .content {
+      position: relative;
+      z-index: 1;
+      max-width: 440px;
     }
 
-    .tagline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 400;
-      color: #ffffff;
-      line-height: 1.25;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted-light);
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: clamp(2.5rem, 4vw, 4.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      text-wrap: balance;
     }
 
     .divider {
-      width: 48px;
+      width: 54px;
       height: 2px;
       background: var(--coral);
-      margin-bottom: 1.5rem;
-      border-radius: 2px;
-    }
-
-    .coming-soon {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
+      border-radius: 999px;
+      margin-bottom: 22px;
     }
 
     .description {
-      font-size: 1rem;
+      max-width: 360px;
+      font-size: 1.02rem;
       font-weight: 300;
-      color: var(--muted);
       line-height: 1.8;
-      margin-bottom: 2.5rem;
-      max-width: 340px;
+      color: var(--muted-light);
+      margin-bottom: 30px;
+    }
+
+    .description strong {
+      color: var(--text-light);
+      font-weight: 500;
     }
 
     .contact {
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 0.95rem;
       font-weight: 300;
+      color: var(--muted-light);
     }
 
     .contact a {
       color: var(--coral);
       text-decoration: none;
-      border-bottom: 1px solid rgba(232,82,74,0.35);
-      transition: border-color 0.2s ease;
+      border-bottom: 1px solid rgba(232, 82, 74, 0.38);
+      transition: border-color 0.2s ease, opacity 0.2s ease;
     }
 
     .contact a:hover {
       border-color: var(--coral);
+      opacity: 0.9;
     }
 
     footer {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.2);
+      margin-top: 56px;
+      font-size: 0.74rem;
       font-weight: 300;
-      margin-top: 3rem;
+      color: var(--footer-light);
     }
 
-    /* RIGHT — light, logo */
     .right {
-      background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: fadeRight 0.9s ease forwards;
-      opacity: 0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(29, 35, 64, 0.025), transparent 40%),
+        var(--ivory);
+      padding: 56px;
     }
 
-    @keyframes fadeRight {
-      from { opacity: 0; transform: translateX(20px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    .obie-wrap {
+    .brand {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      transform: translateY(-10px);
     }
 
-    .obie-img {
-      width: 280px;
+    .logo {
+      width: min(340px, 72vw);
       height: auto;
       display: block;
-      margin: 0 auto;
-      animation: float 4s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-14px); }
+    .wordmark {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.25rem, 3vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.035em;
+      color: var(--text-dark);
     }
 
-    /* MOBILE */
-    @media (max-width: 768px) {
+    @media (max-width: 920px) {
       .page {
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
       }
 
       .right {
-        padding: 2.5rem 2rem;
         order: -1;
+        min-height: 40vh;
+        padding: 44px 24px 20px;
       }
 
-      .obie-img {
-        width: 160px;
+      .brand {
+        gap: 18px;
+        transform: none;
+      }
+
+      .logo {
+        width: min(220px, 58vw);
+      }
+
+      .wordmark {
+        font-size: 2.5rem;
       }
 
       .left {
-        padding: 2.5rem 2rem 3rem;
+        padding: 28px 24px 40px;
       }
 
-      .tagline {
-        font-size: 1.8rem;
+      .content {
+        max-width: 100%;
+      }
+
+      h1 {
+        margin-bottom: 18px;
       }
 
       .description {
         max-width: 100%;
       }
+
+      footer {
+        margin-top: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .right {
+        padding-top: 34px;
+      }
+
+      .logo {
+        width: min(180px, 56vw);
+      }
+
+      .wordmark {
+        font-size: 2.1rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 14px;
+      }
+
+      .description {
+        font-size: 0.98rem;
+        line-height: 1.72;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="left">
-      <p class="tagline">Sounds like you.<br>Runs without you.</p>
-      <div class="divider"></div>
-      <span class="coming-soon">Coming soon</span>
-      <p class="description">AI social media manager built for small business owners. Your voice. On autopilot.</p>
-      <p class="contact">Questions? <a href="mailto:hello@obieflow.com">hello@obieflow.com</a></p>
-      <footer>&copy; 2026 ObieFlow</footer>
-    </div>
-    <div class="right">
-      <div class="obie-wrap">
-        <img src="logo.png" alt="ObieFlow" class="obie-img">
+  <main class="page">
+    <section class="left">
+      <div class="content">
+        <div class="eyebrow">Coming soon</div>
+        <h1>Sounds like you.<br />Runs without you.</h1>
+        <div class="divider"></div>
+
+        <p class="description">
+          AI social media manager for small business owners.
+          <strong>Your voice. On autopilot.</strong>
+        </p>
+
+        <p class="contact">
+          Questions?
+          <a href="mailto:hello@obieflow.com">hello@obieflow.com</a>
+        </p>
+
+        <footer>&copy; 2026 ObieFlow</footer>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <section class="right">
+      <div class="brand">
+        <img src="logo.png" alt="ObieFlow logo" class="logo" />
+        <div class="wordmark">ObieFlow</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
