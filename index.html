@@ -6,7 +6,7 @@
   <title>ObieFlow — Coming Soon</title>
   <meta
     name="description"
-    content="Sounds like you. Runs without you. AI social media manager for small business owners."
+    content="Sounds like you. Runs without you. AI social media management for small business owners."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,7 +49,7 @@
     .page {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1.02fr 1fr;
+      grid-template-columns: 60fr 40fr;
     }
 
     .left,
@@ -65,7 +65,7 @@
       background:
         radial-gradient(circle at 12% 88%, rgba(232, 82, 74, 0.14), transparent 28%),
         linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
-      padding: 56px 64px 56px 72px;
+      padding: 56px 72px;
     }
 
     .left::after {
@@ -79,7 +79,8 @@
     .content {
       position: relative;
       z-index: 1;
-      max-width: 440px;
+      width: 100%;
+      max-width: 680px;
     }
 
     .eyebrow {
@@ -95,12 +96,12 @@
     h1 {
       font-family: "Playfair Display", serif;
       font-weight: 500;
-      font-size: clamp(2.5rem, 4vw, 4.3rem);
+      font-size: clamp(2.8rem, 4.3vw, 4.8rem);
       line-height: 1.02;
       letter-spacing: -0.03em;
       color: var(--text-light);
       margin-bottom: 20px;
-      text-wrap: balance;
+      max-width: 620px;
     }
 
     .divider {
@@ -112,7 +113,7 @@
     }
 
     .description {
-      max-width: 360px;
+      max-width: 560px;
       font-size: 1.02rem;
       font-weight: 300;
       line-height: 1.8;
@@ -216,6 +217,7 @@
       }
 
       h1 {
+        max-width: 100%;
         margin-bottom: 18px;
       }
 
