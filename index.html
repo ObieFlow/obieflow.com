@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObieFlow — Coming Soon</title>
+  <meta name="description" content="Sounds like you. Runs without you. AI social media manager for small business owners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral: #E8524A;
+      --navy: #1E2340;
+      --cream: #FAFAF8;
+      --muted: #8A8F99;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,82,74,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(30,35,64,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 560px;
+      width: 100%;
+      animation: fadeUp 0.8s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+      margin: 0 auto 2.5rem;
+      display: block;
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .tagline em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .description {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--coral);
+      margin: 0 auto 2.5rem;
+      border-radius: 2px;
+    }
+
+    .coming-soon {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .contact a {
+      color: var(--coral);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,82,74,0.3);
+      transition: border-color 0.2s ease;
+    }
+
+    .contact a:hover {
+      border-color: var(--coral);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 300;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="ObieFlow" class="logo">
+    <p class="tagline">Sounds like you.<br>Runs without you.</p>
+    <div class="divider"></div>
+    <span class="coming-soon">Coming soon</span>
+    <p class="description">AI social media manager built for small business owners.<br>Your voice. On autopilot.</p>
+    <p class="contact">Questions? <a href="mailto:hello@obieflow.com">hello@obieflow.com</a></p>
+  </div>
+  <footer>&copy; 2026 ObieFlow Inc.</footer>
+</body>
+</html>
